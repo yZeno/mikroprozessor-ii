@@ -1,0 +1,4 @@
+	JNB		RI,$
+	CLR		RI
+	MOV		A,SBUF
+	ADD		A,#30H	
