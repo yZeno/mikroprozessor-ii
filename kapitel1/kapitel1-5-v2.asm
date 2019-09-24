@@ -1,8 +1,7 @@
 	MOV 	R0,#251
 	MOV		R1,#00H
 	MOV		R2,#00H
-	MOV		R3,#00H
-	MOV		R4,#8
+	MOV		R3,#8
 
 loop:
 	MOV		A,R0
@@ -42,7 +41,7 @@ skip2:
 	ADD		A,#03H
 	MOV		R2,A
 skip3:
-	DJNZ	R4,loop
+	DJNZ	R3,loop
 
 	MOV		A,R2
 	MOV		R3,A
