@@ -1,33 +1,15 @@
-	MOV		R7,#33H
+    MOV		R0,#8		;Rcount
+    MOV		R1,#30H		;Rstore
+    MOV		R2,#33H		;Rvalue
+    MOV		R3,#01H		;Rcomp
+loop:
+    MOV		A,R2
+    ANL		A,R3
+    MOV		@R1,A
+    INC		R1
 
-	MOV		A,R7
-	ANL		A,#01H
-	MOV		R0,A
+    MOV		A,R3
+    RL		A
+    MOV		R3,A
 
-	MOV		A,R7
-	ANL		A,#02H
-	MOV		R1,A
-
-	MOV		A,R7
-	ANL		A,#04H
-	MOV		R2,A
-
-	MOV		A,R7
-	ANL		A,#08H
-	MOV		R3,A
-
-	MOV		A,R7
-	ANL		A,#10H
-	MOV		R4,A
-
-	MOV		A,R7
-	ANL		A,#20H
-	MOV		R5,A
-
-	MOV		A,R7
-	ANL		A,#40H
-	MOV		R6,A
-
-	MOV		A,R7
-	ANL		A,#80H
-	MOV		R7,A
+    DJNZ	R0,loop
