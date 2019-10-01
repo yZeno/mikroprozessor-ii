@@ -1,3 +1,4 @@
+;double dabble algorithm
     MOV 	R0,#251
     MOV		R1,#00H
     MOV		R2,#00H
