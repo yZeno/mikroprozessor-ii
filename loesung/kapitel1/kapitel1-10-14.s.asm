@@ -1,3 +1,20 @@
+;10)
+;...
+LAUTSPRECH  BIT P1.5
+FREQUENZ    EQU 248             ;siehe unten
+
+summer:     CPL LAUTSPRECH      ;Flankenwechsel
+            MOV	R7,#FREQUENZ    ;Zaehler initialisieren
+warten:     DJNZ	R7,warten   ;248*2 zyklen warten
+            SJMP	summmer     ;wechseln
+            END
+
+;1 Zyklus dauert 1µs
+;Wartezeit = t_schleife+t_SJMP+t_CPL+t_MOV
+;           =496+2+1+1
+;           =500Zyklen=500µs
+;...
+
 ;11)
 ;...
 LAUTSPRECH  BIT     P1.5
