@@ -19,9 +19,20 @@ warten:     DJNZ	R7,warten   ;248*2 zyklen warten
 ;...
 LAUTSPRECH  BIT     P1.5
 TASTER      BIT     P3.5
-FREQUENZ    EQU     247
-morssum:    JB      TASTER,morssum
-            ...
+FREQUENZ    EQU     247         ;siehe unten
+
+morssum:
+    JB      TASTER,morssum      ;nichts tun (neg. Logik)
+    CPL     LAUTSPRECH          ;Flankenwechsel
+    MOV     R7,#FREQUENZ        ;Zähler initialisieren
+warten:
+    DJNZ    R7,warten           ;247*2 Zyklen warten
+    SJMP    morssum             ;wechseln
+    END
+
+;Wartezeit = t_schleife+t_SJMP+t_CPL+t_MOV+t_JB
+;           =494+2+1+1+2
+;           =500Zyklen=500µs
 ;...
 
 ;12)
