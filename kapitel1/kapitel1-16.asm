@@ -1,0 +1,11 @@
+    ORG     0000H
+    CLR     A
+    MOV     A,60H
+    ADD     A,61H
+    CLR     C
+    SUBB    A,#36H
+    MOV     R0,A
+    MOV     A,#10H
+    CLR     C
+    SUBB    A,R0
+    MOV     62H,A
