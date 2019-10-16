@@ -1,5 +1,5 @@
     ORG     0000H
-    CLR     A
+    CLR     C
     MOV     A,60H
     ADD     A,61H
     CLR     C
