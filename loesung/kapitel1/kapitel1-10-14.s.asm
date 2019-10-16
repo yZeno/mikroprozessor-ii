@@ -69,3 +69,17 @@ warten:
     MOV     31H,A           ;und dann intern ins RAM
     END
 ;...
+
+;14)
+;...
+    ORG     8000H
+    MOV     DPTR,#0A000H    ;Datenpointer für 1. Quelle
+    MOVX    A,@DPTR         ;externe Quelle in den Akku
+    XCH     A,30H           ;erster Tausch
+    MOVX    @DPTR,A         ;interne Quelle nach aussen
+    INC     DPTR            ;nächste Quelle
+    MOVX    A,@DPTR         ;auch in den Akku
+    XCH     A,31H           ;zweiter Tausch
+    MOVX    @DPTR,A         ;interne Quelle nach aussen
+    END
+;...
